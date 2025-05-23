@@ -1,0 +1,43 @@
+SOCWatch/data/*
+
+# Byte-compiled / optimized / Python cache files
+__pycache__/
+*.py[cod]
+
+# spaCy binary training data
+*.spacy
+
+# Output models (can be regenerated)
+ner_extraction/output/
+
+# VSCode / PyCharm project settings
+.idea/
+.vscode/
+
+# Environment files and virtualenvs
+.env
+.venv/
+myenv/
+env/
+venv/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python distribution files
+*.egg-info/
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Test and misc datasets
+ner_extraction/spacy_data.json
+ner_extraction/misp_ner_dataset.json
