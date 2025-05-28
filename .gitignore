@@ -1,4 +1,5 @@
-SOCWatch/data/*
+SOCWatch/data/
+data/
 
 # Byte-compiled / optimized / Python cache files
 __pycache__/
@@ -41,3 +42,4 @@ Thumbs.db
 # Test and misc datasets
 ner_extraction/spacy_data.json
 ner_extraction/misp_ner_dataset.json
+data/raw_data/misp_data.json

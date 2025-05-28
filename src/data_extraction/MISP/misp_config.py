@@ -1,0 +1,3 @@
+MISP_URL = "https://10.0.2.2:8443"
+MISP_KEY = "PQktWQZcWpo1KnKtdvCsz8CRnbcMd2lYB7KixfTU"
+VERIFY_CERT = False

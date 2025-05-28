@@ -1,0 +1,2 @@
+OPENCTI_API_URL = "http://localhost:8080"
+OPENCTI_API_TOKEN = "cbe26b42-41d3-4782-81be-5e7bd346b2f7"
