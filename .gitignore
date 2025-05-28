@@ -43,3 +43,4 @@ Thumbs.db
 ner_extraction/spacy_data.json
 ner_extraction/misp_ner_dataset.json
 data/raw_data/misp_data.json
+data/raw_data/misp_utis.json
