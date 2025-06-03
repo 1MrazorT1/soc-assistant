@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # === CONFIG ===
-API_KEY = os.getenv(OTX_API_KEY)
+API_KEY = os.getenv("OTX_API_KEY")
 otx = OTXv2(API_KEY)
 
 # === STEP 1: Search for recent pulses (example with "malware")
