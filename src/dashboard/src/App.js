@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import EventList from './components/EventList';
 import IOCDetail from './components/IOCDetail';
 import VTDetail  from './components/VTDetail';
+import AbuseDetail from './components/AbuseDetail';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         {/* Route for IOC detail page */}
         <Route path="/event/:id" element={<IOCDetail />} />
         <Route path="/vt"        element={<VTDetail />} />
+        <Route path="/abuse" element={<AbuseDetail />} />
       </Routes>
     </BrowserRouter>
   );

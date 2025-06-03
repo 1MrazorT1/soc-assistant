@@ -60,11 +60,23 @@ export default function IOCDetail() {
             {eventData.iocs.map((ioc, index) => (
               <tr key={index}>
                 <td>
-                  <Link
-                    to={`/vt?type=${encodeURIComponent(ioc.type)}&value=${encodeURIComponent(ioc.value)}`}
-                  >
-                    {ioc.value}
-                  </Link>
+                  { /* Link to VTDetail */ }
+                 <Link
+                   to={`/vt?type=${encodeURIComponent(ioc.type)}&value=${encodeURIComponent(ioc.value)}`}
+                 >
+                   {ioc.value}
+                 </Link>
+                 { /* If this IOC is an IP, also show a link to AbuseIPDB */ }
+                 {ioc.type.toLowerCase().includes('ip') && (
+                   <>
+                     {' '}|{' '}
+                     <Link
+                       to={`/abuse?ip=${encodeURIComponent(ioc.value)}`}
+                     >
+                       AbuseIPDB
+                     </Link>
+                   </>
+                 )}
                 </td>
                 <td>{ioc.type}</td>
                 <td>{ioc.category || '-'}</td>
