@@ -1,0 +1,73 @@
+/* App.css */
+
+.app {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 16px;
+}
+
+/* Container to hold the two panels side by side (optional) */
+.container {
+  display: flex;
+  gap: 40px;
+}
+
+/* EVENT LIST STYLES */
+.event-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.event-list table th,
+.event-list table td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.event-list table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+/* Make rows look clickable */
+.event-list table tbody tr {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.event-list table tbody tr:hover {
+  background-color: #eef5ff;
+}
+
+/* Highlight selected row */
+.selected {
+  background-color: #d0e8ff !important;
+  font-weight: bold;
+}
+
+/* IOC DETAIL STYLES */
+.ioc-detail {
+  flex: 1;
+  max-width: 600px;
+}
+
+.ioc-detail table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.ioc-detail table th,
+.ioc-detail table td {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+}
+
+.ioc-detail table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}

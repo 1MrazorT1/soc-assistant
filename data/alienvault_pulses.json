@@ -1,0 +1,188 @@
+[
+  {
+    "pulse_id": "546e2e4f11d4083bc021c37d",
+    "name": "Linking Asprox, Zemot, Rovix and  Rerdom Malware Families ",
+    "indicators": [
+      {
+        "pulse_key": "546e2e4f11d4083bc021c37d",
+        "id": 31,
+        "indicator": "lowbalance.su",
+        "type": "domain",
+        "created": "2017-08-24T09:27:23",
+        "content": "",
+        "title": "",
+        "description": "",
+        "expiration": null,
+        "is_active": 1,
+        "false_positive": {
+          "assessment": null,
+          "assessment_date": null,
+          "report_date": null
+        },
+        "slug": "domain"
+      },
+      {
+        "pulse_key": "546e2e4f11d4083bc021c37d",
+        "id": 32,
+        "indicator": "brokenpiano.ru",
+        "type": "domain",
+        "created": "2017-08-24T09:27:23",
+        "content": "",
+        "title": "",
+        "description": "",
+        "expiration": null,
+        "is_active": 1,
+        "false_positive": {
+          "assessment": null,
+          "assessment_date": null,
+          "report_date": null
+        },
+        "slug": "domain"
+      },
+      {
+        "pulse_key": "546e2e4f11d4083bc021c37d",
+        "id": 33,
+        "indicator": "everydaypp.ru",
+        "type": "domain",
+        "created": "2017-08-24T09:27:23",
+        "content": "",
+        "title": "",
+        "description": "",
+        "expiration": null,
+        "is_active": 1,
+        "false_positive": {
+          "assessment": null,
+          "assessment_date": null,
+          "report_date": null
+        },
+        "slug": "domain"
+      },
+      {
+        "pulse_key": "546e2e4f11d4083bc021c37d",
+        "id": 34,
+        "indicator": "oldfirefox.su",
+        "type": "domain",
+        "created": "2017-08-24T09:27:23",
+        "content": "",
+        "title": "",
+        "description": "",
+        "expiration": null,
+        "is_active": 1,
+        "false_positive": {
+          "assessment": null,
+          "assessment_date": null,
+          "report_date": null
+        },
+        "slug": "domain"
+      },
+      {
+        "pulse_key": "546e2e4f11d4083bc021c37d",
+        "id": 35,
+        "indicator": "irishjuice.su",
+        "type": "domain",
+        "created": "2017-08-24T09:27:23",
+        "content": "",
+        "title": "",
+        "description": "",
+        "expiration": null,
+        "is_active": 1,
+        "false_positive": {
+          "assessment": null,
+          "assessment_date": null,
+          "report_date": null
+        },
+        "slug": "domain"
+      },
+      {
+        "pulse_key": "546e2e4f11d4083bc021c37d",
+        "id": 36,
+        "indicator": "nitmurmansk.su",
+        "type": "domain",
+        "created": "2017-08-24T09:27:23",
+        "content": "",
+        "title": "",
+        "description": "",
+        "expiration": null,
+        "is_active": 1,
+        "false_positive": {
+          "assessment": null,
+          "assessment_date": null,
+          "report_date": null
+        },
+        "slug": "domain"
+      },
+      {
+        "pulse_key": "546e2e4f11d4083bc021c37d",
+        "id": 37,
+        "indicator": "d38a9b4d0c17c954080b86bb79a25272",
+        "type": "FileHash-MD5",
+        "created": "2017-08-24T09:27:23",
+        "content": "",
+        "title": "",
+        "description": "",
+        "expiration": null,
+        "is_active": 1,
+        "false_positive": {
+          "assessment": null,
+          "assessment_date": null,
+          "report_date": null
+        },
+        "slug": "file"
+      },
+      {
+        "pulse_key": "546e2e4f11d4083bc021c37d",
+        "id": 38,
+        "indicator": "54b5c261ecbd63118f1a135cb4f091d6",
+        "type": "FileHash-MD5",
+        "created": "2017-08-24T09:27:23",
+        "content": "",
+        "title": "",
+        "description": "",
+        "expiration": null,
+        "is_active": 1,
+        "false_positive": {
+          "assessment": null,
+          "assessment_date": null,
+          "report_date": null
+        },
+        "slug": "file"
+      },
+      {
+        "pulse_key": "546e2e4f11d4083bc021c37d",
+        "id": 39,
+        "indicator": "44994d7d75e6c6f215d239bba5d8f411",
+        "type": "FileHash-MD5",
+        "created": "2017-08-24T09:27:23",
+        "content": "",
+        "title": "",
+        "description": "",
+        "expiration": null,
+        "is_active": 1,
+        "false_positive": {
+          "assessment": null,
+          "assessment_date": null,
+          "report_date": null
+        },
+        "slug": "file"
+      },
+      {
+        "pulse_key": "546e2e4f11d4083bc021c37d",
+        "id": 40,
+        "indicator": "7166665cf5d69422fb710009161faf64",
+        "type": "FileHash-MD5",
+        "created": "2017-08-24T09:27:23",
+        "content": "",
+        "title": "",
+        "description": "",
+        "expiration": null,
+        "is_active": 1,
+        "false_positive": {
+          "assessment": null,
+          "assessment_date": null,
+          "report_date": null
+        },
+        "slug": "file"
+      }
+    ]
+  }
+]
