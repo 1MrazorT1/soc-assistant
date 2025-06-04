@@ -2,23 +2,38 @@
 
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import EventList from './components/EventList';
-import IOCDetail from './components/IOCDetail';
-import VTDetail  from './components/VTDetail';
-import AbuseDetail from './components/AbuseDetail';
+
+import Home          from './components/Home';
+import EventList     from './components/EventList';
+import IOCDetail     from './components/IOCDetail';
+import VTDetail      from './components/VTDetail';
+import AbuseDetail   from './components/AbuseDetail';
+import CveList       from './components/CveList';
+
 import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Route for the main event list */}
-        <Route path="/" element={<EventList />} />
+        {/* Landing / Selection page */}
+        <Route path="/" element={<Home />} />
 
-        {/* Route for IOC detail page */}
+        {/* Events / IOCs */}
+        <Route path="/events" element={<EventList />} />
         <Route path="/event/:id" element={<IOCDetail />} />
-        <Route path="/vt"        element={<VTDetail />} />
+
+        {/* VirusTotal detail (from IOCDetail links) */}
+        <Route path="/vt" element={<VTDetail />} />
+
+        {/* AbuseIPDB detail (from IOCDetail links) */}
         <Route path="/abuse" element={<AbuseDetail />} />
+
+        {/* CVEs page */}
+        <Route path="/cves" element={<CveList />} />
+
+        {/* Fallback: any unknown URL → Home */}
+        <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );

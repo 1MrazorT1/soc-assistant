@@ -1,0 +1,8 @@
+/* src/components/CveList.css */
+.cve-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.cve-table tr:hover {
+  background-color: #f0f0f0;
+}

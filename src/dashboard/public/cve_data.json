@@ -1,0 +1,51 @@
+[
+  {
+    "cve_id": "CVE-2023-0001",
+    "description": "An information exposure vulnerability in the Palo Alto Networks Cortex XDR agent on Windows devices allows a local system administrator to disclose the admin password for the agent in cleartext, which bad actors can then use to execute privileged cytool commands that disable or uninstall the agent.",
+    "published_date": "2023-02-08T18:15Z",
+    "cvss_score": 6.7,
+    "cvss_severity": "MEDIUM"
+  },
+  {
+    "cve_id": "CVE-2023-0002",
+    "description": "A problem with a protection mechanism in the Palo Alto Networks Cortex XDR agent on Windows devices allows a local user to execute privileged cytool commands that disable or uninstall the agent.\n",
+    "published_date": "2023-02-08T18:15Z",
+    "cvss_score": 7.8,
+    "cvss_severity": "HIGH"
+  },
+  {
+    "cve_id": "CVE-2023-0003",
+    "description": "A file disclosure vulnerability in the Palo Alto Networks Cortex XSOAR server software enables an authenticated user with access to the web interface to read local files from the server.",
+    "published_date": "2023-02-08T18:15Z",
+    "cvss_score": 6.5,
+    "cvss_severity": "MEDIUM"
+  },
+  {
+    "cve_id": "CVE-2023-0004",
+    "description": "A local file deletion vulnerability in Palo Alto Networks PAN-OS software enables an authenticated administrator to delete files from the local file system with elevated privileges.\n\nThese files can include logs and system components that impact the integrity and availability of PAN-OS software.",
+    "published_date": "2023-04-12T17:15Z",
+    "cvss_score": 6.5,
+    "cvss_severity": "MEDIUM"
+  },
+  {
+    "cve_id": "CVE-2023-0005",
+    "description": "A vulnerability in Palo Alto Networks PAN-OS software enables an authenticated administrator to expose the plaintext values of secrets stored in the device configuration and encrypted API keys.",
+    "published_date": "2023-04-12T17:15Z",
+    "cvss_score": 4.9,
+    "cvss_severity": "MEDIUM"
+  },
+  {
+    "cve_id": "CVE-2023-0006",
+    "description": "A local file deletion vulnerability in the Palo Alto Networks GlobalProtect app on Windows devices enables a user to delete system files from the endpoint with elevated privileges through a race condition.",
+    "published_date": "2023-04-12T17:15Z",
+    "cvss_score": 6.3,
+    "cvss_severity": "MEDIUM"
+  },
+  {
+    "cve_id": "CVE-2023-0007",
+    "description": "A cross-site scripting (XSS) vulnerability in Palo Alto Networks PAN-OS software on Panorama appliances enables an authenticated read-write administrator to store a JavaScript payload in the web interface that will execute in the context of another administrator\u2019s browser when viewed.\n",
+    "published_date": "2023-05-10T17:15Z",
+    "cvss_score": 4.8,
+    "cvss_severity": "MEDIUM"
+  }
+]
