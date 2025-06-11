@@ -9,6 +9,7 @@ import IOCDetail     from './components/IOCDetail';
 import VTDetail      from './components/VTDetail';
 import AbuseDetail   from './components/AbuseDetail';
 import CveList       from './components/CveList';
+import MaliciousURLs from './components/MaliciousURLs';
 
 import './App.css';
 
@@ -31,6 +32,7 @@ function App() {
 
         {/* CVEs page */}
         <Route path="/cves" element={<CveList />} />
+        <Route path="/malicious-urls" element={<MaliciousURLs />} />
 
         {/* Fallback: any unknown URL → Home */}
         <Route path="*" element={<Home />} />

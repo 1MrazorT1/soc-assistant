@@ -1,0 +1,26 @@
+[
+  {
+    "id": "3560699",
+    "url": "http://66.94.97.224/w.sh",
+    "threat": "malware_download",
+    "tags": "sh, ua-wget",
+    "status": "online",
+    "last_online": "2025-06-11 09:57:04 UTC"
+  },
+  {
+    "id": "3560697",
+    "url": "http://66.94.97.224/c.sh",
+    "threat": "malware_download",
+    "tags": "sh, ua-wget",
+    "status": "online",
+    "last_online": "2025-06-11 09:56:04 UTC"
+  },
+  {
+    "id": "3560698",
+    "url": "http://66.94.97.224/test.sh",
+    "threat": "malware_download",
+    "tags": "sh, ua-wget",
+    "status": "online",
+    "last_online": "2025-06-11 09:56:04 UTC"
+  }
+]

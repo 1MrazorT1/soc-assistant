@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Home.css"; // (optional styling)
+import "./Home.css";
 
 export default function Home() {
   return (
@@ -15,6 +15,9 @@ export default function Home() {
         </Link>
         <Link to="/cves" style={buttonStyle}>
           CVEs
+        </Link>
+        <Link to="/malicious-urls" style={buttonStyle}>
+          View Malicious URLs
         </Link>
       </div>
     </div>
