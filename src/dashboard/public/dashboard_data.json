@@ -6988,5 +6988,70 @@
         "first_seen": "2017-08-24"
       }
     ]
+  },
+  {
+    "id": "720c7bae-8d18-4e30-93c5-31c8d55bb332",
+    "name": "OSINT Malshare Feed",
+    "source": "Malshare",
+    "date": "2025-06-11",
+    "ioc_count": 10,
+    "iocs": [
+      {
+        "value": "0befa3501d75efc4409ca65e505f66c8ae7706053b76cf204dda0c33b0e5ae81",
+        "type": "sha256",
+        "category": "Payload delivery",
+        "to_ids": true,
+        "first_seen": "2025-06-11"
+      },
+      {
+        "value": "f7dc28fd7f6d3da6c4421291b5ecdb62c815eb1c17f4b31dbf38b114540e5bb5",
+        "type": "sha256",
+        "category": "Payload delivery",
+        "to_ids": true,
+        "first_seen": "2025-06-11"
+      },
+      {
+        "value": "a7886b0b3769ed12240eebf8d573e103ad2d03a3c603fc6ccd15b66d17a5abe6",
+        "type": "sha256",
+        "category": "Payload delivery",
+        "to_ids": true,
+        "first_seen": "2025-06-11"
+      },
+      {
+        "value": "a1f2272b3caa3ea6764c1a6a6b4d78a716843d9a998b895377e682e5af6913c2",
+        "type": "sha256",
+        "category": "Payload delivery",
+        "to_ids": true,
+        "first_seen": "2025-06-11"
+      },
+      {
+        "value": "869a364915744cac13736cc13db7f921cf01cc836f5afcee792d01665ad8241b",
+        "type": "sha256",
+        "category": "Payload delivery",
+        "to_ids": true,
+        "first_seen": "2025-06-11"
+      },
+      {
+        "value": "6373202438e1260bbc540f712660fcfac7d98348833ee180dc8ab24841486fb7",
+        "type": "sha256",
+        "category": "Payload delivery",
+        "to_ids": true,
+        "first_seen": "2025-06-11"
+      },
+      {
+        "value": "ad7b9ba4388f6c10bc6d81f4c8652e3cf03ac533f901dfb15c8fbbe8676ef1a7",
+        "type": "sha256",
+        "category": "Payload delivery",
+        "to_ids": true,
+        "first_seen": "2025-06-11"
+      },
+      {
+        "value": "b94059e88abb1d3e57a69d37aad64e93e0364a21dd25b1ee3d24e4c46b7c4936",
+        "type": "sha256",
+        "category": "Payload delivery",
+        "to_ids": true,
+        "first_seen": "2025-06-11"
+      }
+    ]
   }
 ]

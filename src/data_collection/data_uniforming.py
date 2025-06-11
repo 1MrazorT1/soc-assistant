@@ -4,7 +4,6 @@ import os
 
 os.makedirs("../data", exist_ok=True)
 
-# === Helper to convert timestamp ===
 def ts_to_date(ts):
     try:
         return datetime.utcfromtimestamp(int(ts)).strftime('%Y-%m-%d')
@@ -24,7 +23,7 @@ for pulse in alienvault_raw:
             "type": ioc.get("type"),
             "category": None,
             "to_ids": None,
-            "first_seen": ioc.get("created", "")[:10]  # ISO date
+            "first_seen": ioc.get("created", "")[:10]
         })
     alienvault_data.append({
         "id": pulse.get("pulse_id"),
@@ -61,8 +60,23 @@ for event_wrapper in misp_raw:
         "iocs": iocs
     })
 
+# === Load Malshare Feed ===
+with open("data/Malshare_data.json", "r") as f:
+    malshare_entry = json.load(f)
+
+malshare_data = [  # convert to list for merging
+    {
+        "id": malshare_entry["id"],
+        "name": malshare_entry["name"],
+        "source": malshare_entry["source"],
+        "date": malshare_entry["date"],
+        "ioc_count": malshare_entry["ioc_count"],
+        "iocs": malshare_entry["iocs"]
+    }
+]
+
 # === Merge and save ===
-dashboard_data = misp_data + alienvault_data
+dashboard_data = misp_data + alienvault_data + malshare_data
 
 with open("data/dashboard_data.json", "w") as f:
     json.dump(dashboard_data, f, indent=2)

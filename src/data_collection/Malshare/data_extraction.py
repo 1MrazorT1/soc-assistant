@@ -37,7 +37,6 @@ for sample in samples:
             "first_seen": datetime.now(timezone.utc).strftime("%Y-%m-%d")  # No timestamp in response, so use now
         })
 
-# Save to file
 save_path = "../../../data/Malshare_data.json"
 with open(save_path, "w") as f:
     json.dump(formatted_output, f, indent=2)
