@@ -4,8 +4,8 @@ import { useSearchParams, Link } from 'react-router-dom';
 
 export default function VTDetail() {
   const [searchParams] = useSearchParams();
-  const type  = searchParams.get('type');   // example: "sha256" or "domain" or "ip"
-  const value = searchParams.get('value');  // the IOC itself
+  const type  = searchParams.get('type');
+  const value = searchParams.get('value');
   const [vtData, setVtData] = useState(null);
   const [loading, setLoading] = useState(true);
 
