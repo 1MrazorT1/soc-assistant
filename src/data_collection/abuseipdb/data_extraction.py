@@ -56,4 +56,4 @@ def get_abuse():
 if __name__ == "__main__":
     # The service will listen on http://127.0.0.1:5001 by default
     # (choose a different port than 5000 if vt_service.py is already on 5000)
-    app.run(host="127.0.0.1", port=5001, debug=True)
+    app.run(host="127.0.0.1", port=5001, debug=False, use_reloader=False)

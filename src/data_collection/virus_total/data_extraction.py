@@ -80,4 +80,4 @@ def get_vt():
 if __name__ == "__main__":
     # By default: runs on http://127.0.0.1:5000
     CORS(app)  # Enable CORS for all routes
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="127.0.0.1", port=5000, debug=False, use_reloader=False)
