@@ -7,7 +7,7 @@ load_dotenv()
 
 MISP_URL = os.getenv("MISP_URL")
 MISP_KEY = os.getenv("MISP_API_KEY")
-VERIFY_CERT = os.getenv("MISP_SSL_VERIFY")
+VERIFY_CERT = os.getenv("MISP_SSL_VERIFY", "true").lower() == "true"
 
 misp = PyMISP(MISP_URL, MISP_KEY, VERIFY_CERT, 'json')
 
