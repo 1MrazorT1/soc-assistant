@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 import os
 
-os.makedirs("../data", exist_ok=True)
+#os.makedirs("../data", exist_ok=True)
 
 def ts_to_date(ts):
     try:
@@ -11,7 +11,7 @@ def ts_to_date(ts):
         return None
 
 # === Load AlienVault Pulses ===
-with open("data/alienvault_pulses.json", "r") as f:
+with open("../../data/alienvault_pulses.json", "r") as f:
     alienvault_raw = json.load(f)
 
 alienvault_data = []
@@ -35,7 +35,7 @@ for pulse in alienvault_raw:
     })
 
 # === Load MISP Events ===
-with open("data/misp_events.json", "r") as f:
+with open("../../data/misp_events.json", "r") as f:
     misp_raw = json.load(f)
 
 misp_data = []
@@ -61,7 +61,7 @@ for event_wrapper in misp_raw:
     })
 
 # === Load Malshare Feed ===
-with open("data/Malshare_data.json", "r") as f:
+with open("../../data/Malshare_data.json", "r") as f:
     malshare_entry = json.load(f)
 
 malshare_data = [  # convert to list for merging
@@ -78,7 +78,14 @@ malshare_data = [  # convert to list for merging
 # === Merge and save ===
 dashboard_data = misp_data + alienvault_data + malshare_data
 
-with open("data/dashboard_data.json", "w") as f:
+with open("../dashboard/public/dashboard_data.json", "w") as f:
     json.dump(dashboard_data, f, indent=2)
 
 print(f"Dashboard data ready: {len(dashboard_data)} entries saved.")
+
+from alerting import is_critical, send_alert
+
+for entry in dashboard_data:
+    for ioc in entry["iocs"]:
+        if is_critical(ioc):
+            send_alert(ioc)
