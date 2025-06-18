@@ -10,6 +10,7 @@ import VTDetail      from './components/VTDetail';
 import AbuseDetail   from './components/AbuseDetail';
 import CveList       from './components/CveList';
 import MaliciousURLs from './components/MaliciousURLs';
+import VTCheckForm from './components/VTCheckForm';
 
 import './App.css';
 
@@ -33,7 +34,7 @@ function App() {
         {/* CVEs page */}
         <Route path="/cves" element={<CveList />} />
         <Route path="/malicious-urls" element={<MaliciousURLs />} />
-
+        <Route path="/vt-check" element={<VTCheckForm  />} />
         {/* Fallback: any unknown URL → Home */}
         <Route path="*" element={<Home />} />
       </Routes>

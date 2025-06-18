@@ -19,6 +19,9 @@ export default function Home() {
         <Link to="/malicious-urls" style={buttonStyle}>
           View Malicious URLs
         </Link>
+        <Link to="/vt-check" style={buttonStyle}>
+          Check a certain link 
+        </Link>
       </div>
     </div>
   );
