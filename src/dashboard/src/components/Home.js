@@ -15,7 +15,7 @@ export default function Home() {
           CVEs
         </Link>
         <Link to="/malicious-urls" className="button-86" role="button">
-          View Malicious URLs
+          Newly reported URLs
         </Link>
         <Link to="/vt-check" className="button-86" role="button">
           Check a certain link

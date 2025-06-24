@@ -1,14 +1,14 @@
-import cupy
 import spacy
+nlp = spacy.load("ner_cti_model/model-best")
 
-# Force CuPy to use the first GPU
-cupy.cuda.Device(0).use()
+examples = [
+    "Zeus malware exploited CVE-2023-9999 and targeted 8.8.8.8.",
+    "APT28 actors were linked to domain evil.example.com",
+    "Malware Joker was seen on 10.0.0.5 in phishing campaigns."
+]
 
-if spacy.prefer_gpu():
-    print("✔ spaCy is using GPU")
-else:
-    print("✘ spaCy fell back to CPU")
-
-nlp = spacy.load("en_core_web_trf")
-doc = nlp("APT29 is targeting NATO with phishing emails from domains like secure-login.org")
-print([(ent.text, ent.label_) for ent in doc.ents])
+for text in examples:
+    doc = nlp(text)
+    print(f"\n{text}")
+    for ent in doc.ents:
+        print(f"  {ent.text} → {ent.label_}")
