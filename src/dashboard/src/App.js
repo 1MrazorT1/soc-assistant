@@ -11,6 +11,7 @@ import AbuseDetail   from './components/AbuseDetail';
 import CveList       from './components/CveList';
 import MaliciousURLs from './components/MaliciousURLs';
 import VTCheckForm from './components/VTCheckForm';
+import AiModel from './components/aiModel';
 
 import './App.css';
 
@@ -35,7 +36,7 @@ function App() {
         <Route path="/cves" element={<CveList />} />
         <Route path="/malicious-urls" element={<MaliciousURLs />} />
         <Route path="/vt-check" element={<VTCheckForm  />} />
-        {/* Fallback: any unknown URL → Home */}
+        <Route path="/ai-check" element={<AiModel  />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>

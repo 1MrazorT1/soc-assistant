@@ -20,6 +20,9 @@ export default function Home() {
         <Link to="/vt-check" className="button-86" role="button">
           Check a certain link
         </Link>
+        <Link to="/ai-check" className="button-86" role="button">
+          Use the AI Model
+        </Link>
       </div>
     </div>
   );
