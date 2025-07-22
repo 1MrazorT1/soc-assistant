@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function VTCheckForm() {
   const [input, setInput] = useState('');
@@ -10,13 +11,15 @@ export default function VTCheckForm() {
     e.preventDefault();
     if (!input || !type) return;
 
-    // Redirect to the VTDetail page with query params
     navigate(`/vt?type=${encodeURIComponent(type)}&value=${encodeURIComponent(input)}`);
   };
 
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <h1>Check an Indicator with VirusTotal</h1>
+      <p>
+        <Link to="/">◀ Back to Home</Link>
+      </p>
       <form onSubmit={handleSubmit}>
         <label>
           Type:

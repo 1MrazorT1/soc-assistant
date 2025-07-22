@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 export default function AiModel() {
   const [inputText, setInputText] = useState("");
@@ -17,7 +18,10 @@ export default function AiModel() {
 
   return (
     <div style={{ padding: "30px" }}>
-      <h2>Analyze Text with AI</h2>
+      <h2>Analyze with AI</h2>
+      <p>
+              <Link to="/">◀ Back to Home</Link>
+        </p>
       <form onSubmit={handleSubmit}>
         <textarea
           rows="6"

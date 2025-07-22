@@ -1,5 +1,5 @@
-// src/components/MaliciousURLs.js
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import './EventList.css';
 
 export default function MaliciousURLs() {
@@ -14,6 +14,9 @@ export default function MaliciousURLs() {
   return (
     <div className="event-list-page">
       <h1>Malicious URLs (from URLHaus)</h1>
+      <p>
+        <Link to="/">◀ Back to Home</Link>
+      </p>
       <table className="event-table">
         <thead>
           <tr>

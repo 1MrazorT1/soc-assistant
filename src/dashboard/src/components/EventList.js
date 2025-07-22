@@ -16,6 +16,9 @@ export default function EventList() {
   return (
     <div className="event-list-page">
       <h1>Threat Intelligence Dashboard</h1>
+      <p>
+        <Link to="/">◀ Back to Home</Link>
+      </p>
       <div className="event-list-container">
         <h2>Events / Pulses</h2>
         <table className="event-table">

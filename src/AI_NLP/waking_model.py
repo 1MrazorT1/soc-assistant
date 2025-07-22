@@ -1,12 +1,10 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # 👈 add this
+from flask_cors import CORS
 import spacy
 import os
 
 app = Flask(__name__)
-CORS(app)  # 👈 add this line to enable CORS
-
-# Load your model
+CORS(app)
 MODEL_PATH = os.path.join("ner_cti_model", "model-best")
 nlp = spacy.load(MODEL_PATH)
 
