@@ -19,5 +19,9 @@ def analyze_text():
     results = [{"text": ent.text, "label": ent.label_} for ent in doc.ents]
     return jsonify({"entities": results})
 
+@app.route('/api/status', methods=['GET'])
+def status():
+    return jsonify({"status": "ok", "model": "loaded"}), 200
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

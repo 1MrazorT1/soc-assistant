@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 export default function AiModel() {
   const [inputText, setInputText] = useState("");
   const [result, setResult] = useState(null);
+  const [serverStatus, setServerStatus] = useState("Checking...");
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:5000/api/status")
+      .then((res) => res.ok ? res.json() : Promise.reject())
+      .then(() => setServerStatus("🟢 Model is online"))
+      .catch(() => setServerStatus("🔴 Model is offline"));
+  }, []);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,9 +28,7 @@ export default function AiModel() {
   return (
     <div style={{ padding: "30px" }}>
       <h2>Analyze with AI</h2>
-      <p>
-              <Link to="/">◀ Back to Home</Link>
-        </p>
+      <p><strong>Status:</strong> {serverStatus}</p>
       <form onSubmit={handleSubmit}>
         <textarea
           rows="6"
@@ -33,6 +40,7 @@ export default function AiModel() {
         <br />
         <button type="submit" style={{ marginTop: "10px" }}>Analyze</button>
       </form>
+      <p><Link to="/">◀ Back to Home</Link></p>
 
       {result && (
          <div style={{ marginTop: "20px" }}>
