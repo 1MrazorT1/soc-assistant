@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# data_extraction.py
-
 import os
 import gzip
 import json
@@ -9,7 +6,6 @@ import requests
 from dotenv import load_dotenv
 from requests.exceptions import RequestException
 
-# ── Load API key from .env ──
 load_dotenv()
 API_KEY = os.getenv("NVD_API_KEY")
 
@@ -17,11 +13,8 @@ HEADERS = {}
 if API_KEY:
     HEADERS["apiKey"] = API_KEY
 
-# ── Constants ──
 YEAR = "2023"
-# NVD v2.0 API endpoint
 API_URL = "https://api.nvd.nist.gov/rest/json/cves/2.0"
-# Fallback “feed” URL if API is unreachable
 FEED_URL = f"https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-{YEAR}.json.gz"
 OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "../../../data/cve_data.json")
 
@@ -95,7 +88,7 @@ def _fetch_via_api(start_date, end_date, results_per_page):
             break
 
         start_index += results_per_page
-        time.sleep(1)  # respect rate limits
+        time.sleep(1)
 
     return all_cves
 

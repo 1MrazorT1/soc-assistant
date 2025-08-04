@@ -22,11 +22,9 @@ def is_critical(ioc):
     category = ioc.get("category", "").lower()
     ioc_type = ioc.get("type", "").lower()
 
-    # Alert if value mentions known threat actors or tools
     if any(k in value for k in critical_keywords):
         return True
 
-    # Alert if it's a domain/IP with to_ids set to True (meaning actionable)
     if ioc_type in ["ip-dst", "domain", "url"] and ioc.get("to_ids", False):
         return True
 

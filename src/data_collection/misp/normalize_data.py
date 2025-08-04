@@ -1,7 +1,6 @@
 import json
 from datetime import datetime
 
-# Charger le fichier d'événement MISP
 with open("../data/misp_events.json", "r") as f:
     your_data = json.load(f)
 
@@ -23,7 +22,6 @@ for attr in event["Attribute"]:
         "threat_level": event_threat
     })
 
-# Sauvegarder dans un fichier JSON
 with open("../data/misp_iocs_normalized.json", "w") as f:
     json.dump(normalized, f, indent=2)
 

@@ -7,11 +7,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-url = os.getenv("Malshare_URL")  # Should look like: https://malshare.com/api.php?api_key=XXX&action=getsamples
+url = os.getenv("Malshare_URL")
 response = requests.get(url)
 
 try:
-    samples = response.json()  # Malshare now returns JSON array
+    samples = response.json()
 except json.JSONDecodeError:
     print("Failed to decode JSON.")
     print(response.text[:300])
@@ -34,7 +34,7 @@ for sample in samples:
             "type": "sha256",
             "category": "Payload delivery",
             "to_ids": True,
-            "first_seen": datetime.now(timezone.utc).strftime("%Y-%m-%d")  # No timestamp in response, so use now
+            "first_seen": datetime.now(timezone.utc).strftime("%Y-%m-%d")
         })
 
 save_path = "../../../data/Malshare_data.json"

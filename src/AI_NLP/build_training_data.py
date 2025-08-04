@@ -2,7 +2,6 @@ import re
 import json
 from pathlib import Path
 
-# === Entité + regex associée pour annotation ===
 ENTITY_REGEXES = {
     "IP": r"\b(?:\d{1,3}\.){3}\d{1,3}\b",
     "DOMAIN": r"\b[a-zA-Z0-9.-]+\.(com|net|org|su|ru|info|biz|[a-z]{2,})\b",
@@ -12,7 +11,6 @@ ENTITY_REGEXES = {
     "FILE": r"\b\w+\.(exe|dll|sh|js|doc|xls|pdf)\b",
 }
 
-# === Fichiers à parser ===
 FILES = [
     "../../data/alienvault_pulses.json",
     "../../data/misp_events.json",
@@ -21,7 +19,6 @@ FILES = [
     "../../data/URLhaus_data.json"
 ]
 
-# === Colonnes textuelles à parcourir ===
 TEXT_FIELDS = ["description", "value", "url", "info", "comment", "name"]
 
 TRAIN_DATA = []
@@ -47,7 +44,6 @@ for filename in FILES:
             print(f"[!] Erreur parsing {filename}: {e}")
             continue
 
-    # support both dict and list format
     records = data if isinstance(data, list) else [data]
 
     for record in records:

@@ -5,11 +5,9 @@ import os
 
 load_dotenv()
 
-# === CONFIG ===
 API_KEY = os.getenv("OTX_API_KEY")
 otx = OTXv2(API_KEY)
 
-# === STEP 1: Search for recent pulses (example with "malware")
 search_results = otx.search_pulses("malware", max_results=1)
 
 pulses = []
@@ -22,7 +20,6 @@ for pulse in search_results['results']:
         "indicators": indicators
     })
 
-# === SAVE TO FILE
 import os
 os.makedirs("../data", exist_ok=True)
 

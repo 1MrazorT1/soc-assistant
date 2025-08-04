@@ -2,7 +2,6 @@ import json
 from datetime import datetime
 import os
 
-#os.makedirs("../data", exist_ok=True)
 
 def ts_to_date(ts):
     try:
@@ -10,7 +9,6 @@ def ts_to_date(ts):
     except:
         return None
 
-# === Load AlienVault Pulses ===
 with open("../../data/alienvault_pulses.json", "r") as f:
     alienvault_raw = json.load(f)
 
@@ -34,7 +32,6 @@ for pulse in alienvault_raw:
         "iocs": indicators
     })
 
-# === Load MISP Events ===
 with open("../../data/misp_events.json", "r") as f:
     misp_raw = json.load(f)
 
@@ -60,11 +57,10 @@ for event_wrapper in misp_raw:
         "iocs": iocs
     })
 
-# === Load Malshare Feed ===
 with open("../../data/Malshare_data.json", "r") as f:
     malshare_entry = json.load(f)
 
-malshare_data = [  # convert to list for merging
+malshare_data = [
     {
         "id": malshare_entry["id"],
         "name": malshare_entry["name"],
@@ -75,7 +71,6 @@ malshare_data = [  # convert to list for merging
     }
 ]
 
-# === Merge and save ===
 dashboard_data = misp_data + alienvault_data + malshare_data
 
 with open("../dashboard/public/dashboard_data.json", "w") as f:

@@ -5,7 +5,6 @@ import requests
 import os
 from dotenv import load_dotenv
 
-# ── LOAD ENV VARIABLES ──
 load_dotenv()
 VT_API_KEY = os.getenv("VT_API_KEY")
 BASE_URL   = os.getenv("BASE_URL", "https://www.virustotal.com/api/v3")
@@ -17,7 +16,6 @@ HEADERS = {
     "x-apikey": VT_API_KEY
 }
 
-# ── FLASK APP SETUP ──
 app = Flask(__name__)
 
 def vt_lookup(type_, value):
@@ -35,13 +33,10 @@ def vt_lookup(type_, value):
     elif t in ("domain",):
         url = f"{BASE_URL}/domains/{value}"
     elif t in ("url",):
-        # URL must be Base64 (URL-safe, without padding) for VT
-        # Example: "https://example.com" → base64 → "aHR0cHM6Ly9leGFtcGxlLmNvbQ"
         try:
             b64 = base64.urlsafe_b64encode(value.encode()).decode().rstrip("=")
             url = f"{BASE_URL}/urls/{b64}"
         except Exception:
-            # Fallback to URL-encoding
             from urllib.parse import quote
             encoded = quote(value, safe="")
             url = f"{BASE_URL}/urls/{encoded}"
@@ -50,10 +45,8 @@ def vt_lookup(type_, value):
 
     resp = requests.get(url, headers=HEADERS)
     if resp.status_code == 200:
-        # Return the `data.attributes` block to the client
         return resp.json().get("data", {}).get("attributes", {})
     else:
-        # If VT returns an error (404, 429, etc.), forward it
         try:
             return {"error": resp.json().get("error", {})}
         except ValueError:
@@ -78,6 +71,5 @@ def get_vt():
     return jsonify(data)
 
 if __name__ == "__main__":
-    # By default: runs on http://127.0.0.1:5000
-    CORS(app)  # Enable CORS for all routes
+    CORS(app)
     app.run(host="127.0.0.1", port=5000, debug=False, use_reloader=False)
