@@ -26,6 +26,9 @@ export default function Home() {
         <Link to="/docs/index.html" target="_blank" className="button-86" role="button">
           Documentation - How to use ?
         </Link>
+        <Link to="/Status" className="button-86" role="button">
+          Status
+        </Link>
       </div>
     </div>
   );
