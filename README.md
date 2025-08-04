@@ -98,6 +98,18 @@ This project aims to proactively assist Security Operations Centers (SOCs) by ag
 
 ## Getting Started
 
+### 0. Prerequisites
+
+```bash
+sudo apt install python3-pip
+sudo apt install python3.12-venv
+python3 -m venv soc_env
+source soc_env/bin/activate
+git clone git@github.com:1MrazorT1/soc-assistant.git
+cd soc-assistant/
+pip install -r requirements.txt
+```
+
 ### 1. Install dependencies
 
 ```bash

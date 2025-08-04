@@ -1,0 +1,31 @@
+# Core
+requests
+json5
+pathlib
+schedule
+
+# Flask API
+Flask
+flask-cors
+
+# Environment variables
+python-dotenv
+
+# NLP / AI
+spacy
+tqdm
+
+# Threat Intelligence APIs
+PyMISP
+OTXv2
+
+# Email alerting
+yagmail
+
+# Transformers-based models
+transformers
+
+# Parsing and scraping
+beautifulsoup4
+lxml
+feedparser
