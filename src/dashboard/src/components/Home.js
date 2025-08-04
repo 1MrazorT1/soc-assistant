@@ -23,7 +23,7 @@ export default function Home() {
         <Link to="/ai-check" className="button-86" role="button">
           Use the AI Model
         </Link>
-        <Link to="/documentation" className="button-86" role="button">
+        <Link to="/docs/index.html" target="_blank" className="button-86" role="button">
           Documentation - How to use ?
         </Link>
       </div>
