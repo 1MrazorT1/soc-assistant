@@ -1,8 +1,6 @@
-// src/components/CveList.js
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./CveList.css"; // (optional styling)
+import "./CveList.css";
 
 export default function CveList() {
   const [cves, setCves] = useState([]);
