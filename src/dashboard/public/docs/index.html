@@ -99,14 +99,14 @@
         <section id="idocs_start">
           <h1>SOC Assistant Documentation</h1>
           <h2>AI‑Powered Threat Intelligence Aggregation Platform</h2>
-          <p class="lead">Aggregate, analyze, and visualize Cyber Threat Intelligence (CTI) from MISP, AlienVault OTX, NVD, URLHaus, VirusTotal and more. Enrich data with NLP, map to MITRE ATT&CK, alert analysts, and integrate with SIEM.</p>
+          <p class="lead">Aggregate, analyze, and visualize Cyber Threat Intelligence (CTI) from MISP, AlienVault OTX, NVD, URLHaus, VirusTotal and more. Extract valuable data with NLP and alert analysts.</p>
           <hr>
           <div class="row">
             <div class="col-sm-6 col-lg-4">
               <ul class="list-unstyled">
-                <li><strong>Version:</strong> 1.0</li>
-                <li><strong>Author:</strong> Mohamed Toujani</li>
-                <li><strong>Repo:</strong> <code>soc-assistant</code></li>
+                <li><strong>Version:</strong> 2.0</li>
+                <li><strong>Author:</strong> Med Toujani</li>
+                <li><strong>Repo:</strong> <code> <a href="https://github.com/1MrazorT1/soc-assistant">soc-assistant</a></code></li>
               </ul>
             </div>
             <div class="col-sm-6 col-lg-4">
@@ -127,13 +127,11 @@
             <li><strong>Data Collectors</strong> – Python scripts/APIs (MISP, OTX, NVD, URLHaus, VirusTotal, AbuseIPDB).</li>
             <li><strong>NLP Service</strong> – spaCy NER model trained on CTI to extract IOCs, CVEs, actors, etc.</li>
             <li><strong>Backend API</strong> – Flask endpoints to serve collected/enriched data.</li>
-            <li><strong>Storage</strong> – MongoDB/Elasticsearch (choose one or both).
+            <li><strong>Storage</strong> – Local (soon will be changed to MongoDB).
             </li>
             <li><strong>Dashboard</strong> – React UI for events, CVEs, malicious URLs, and on‑demand VT checks.</li>
-            <li><strong>Alerting</strong> – Email/Teams/Slack webhooks based on rules.</li>
-            <li><strong>Integrations</strong> – Wazuh/SIEM export of IOCs & enrichment.</li>
+            <li><strong>Alerting</strong> – Email through SMTP (Simple Mail Transfer Protocol).</li>
           </ul>
-          <p class="alert alert-info">Dark‑web access is performed only from an isolated VM via Tor for passive collection.</p>
         </section>
 
         <section id="idocs_features">
@@ -143,7 +141,6 @@
             <li>spaCy NER extraction for <code>IP</code>, <code>DOMAIN</code>, <code>URL</code>, <code>HASH</code>, <code>CVE</code>, <code>ACTOR</code>.</li>
             <li>MITRE ATT&CK tagging (planned).</li>
             <li>Interactive dashboard (React) + REST API (Flask).</li>
-            <li>IOC export to CSV/JSON for SIEMs.</li>
             <li>Custom alert rules (severity, source, tag).</li>
           </ul>
         </section>
@@ -161,75 +158,68 @@
           <ul>
             <li>OS: Linux/Windows/Mac</li>
             <li>Python 3.10–3.12, <code>pip</code>, <code>virtualenv</code></li>
-            <li>Node.js 18+ and npm</li>
-            <li>MongoDB or Elasticsearch (optional for demo)</li>
-            <li>API keys (as available): MISP, OTX, VirusTotal, AbuseIPDB</li>
+            <li>Node.js 16+ and npm</li>
+            <li>API keys : MISP, OTX, VirusTotal, AbuseIPDB</li>
           </ul>
         </section>
 
         <section id="idocs_env">
           <h3>Environment Variables</h3>
 <pre><code class="bash"># .env (project root)
-# Backend
-FLASK_ENV=development
-FLASK_PORT=5000
-CORS_ORIGINS=http://localhost:3000
+# MISP config
+MISP_URL = https://&lt;your-misp&gt;
+MISP_API_KEY = &lt;key&gt;
+MISP_SSL_VERIFY = false
 
-# Model / NLP
-NLP_MODEL_PATH=src/AI_NLP/ner_cti_model/model-best
+# ALIENVAULT config
+OTX_API_KEY = &lt;key&gt;
 
-# External APIs
-MISP_URL=https://&lt;your-misp&gt;
-MISP_API_KEY=&lt;key&gt;
-OTX_API_KEY=&lt;key&gt;
-VT_API_KEY=&lt;key&gt;
-ABUSEIPDB_API_KEY=&lt;key&gt;
+# VirusTotal config
+VT_API_KEY = &lt;key&gt;
+BASE_URL = https://www.virustotal.com/api/v3
 
-# Storage
-MONGO_URI=mongodb://localhost:27017/soc
-ELASTIC_URL=http://localhost:9200
+# AbuseIPDB config
+ABUSEIPDB_KEY=&lt;key&gt;
+
+# NVD config
+NVD_API_KEY = &lt;key&gt;
+
+# Twitter config
+TWITTER_BEARER_TOKEN=&lt;key&gt;
+
+# Malshare config
+Malshare_URL = https://malshare.com/api.php?api_key=&lt;key&gt;=getlist
+Malshare_KEY = &lt;key&gt;
+
+# Alerting Email config
+ALERT_EMAIL = &lt;email address&gt;
+ALERT_PASS = &lt;key&gt;
+ALERT_TO = &lt;receiver's address&gt;
 </code></pre>
-          <p class="text-muted">Only set what you actually use. Values are read by the Flask services and collector scripts.</p>
         </section>
 
         <section id="idocs_backend">
-          <h3>Backend Setup</h3>
-<pre><code class="bash"># 1) Create and activate a virtualenv
+          <h3>Setup</h3>
+<pre><code class="bash"># 1) Installation
 python3 -m venv soc_env
-source soc_env/bin/activate  # Windows: soc_env\\Scripts\\activate
-
-# 2) Install dependencies
+source soc_env/bin/activate
+git clone git@github.com:1MrazorT1/soc-assistant.git
+cd soc-assistant/
 pip install -r requirements.txt
 
-# 3) Verify spaCy model path
-python -c "import spacy, os; print(os.path.exists(os.getenv('NLP_MODEL_PATH','src/AI_NLP/ner_cti_model/model-best')))"
+# 2) Starting Backend
+python fetch_all.py
+python launch.py 
 
-# 4) Start services
-python src/AI_NLP/waking_model.py   # NER microservice (port 5000 by default)
-python src/launch.py                # Starts Flask APIs that your dashboard calls
+# 3) Starting the Dashboard
+cd src/dashboard
+npm install
+npm start
 </code></pre>
         </section>
 
         <section id="idocs_frontend">
-          <h3>Frontend Setup (React)</h3>
-<pre><code class="bash">cd src/dashboard
-npm install
-npm start       # http://localhost:3000
-# or build
-npm run build
-</code></pre>
           <p class="alert alert-warning">If you see a Webpack OpenSSL error (<code>error:0308010C</code>), use Node 18 LTS or set <code>NODE_OPTIONS=--openssl-legacy-provider</code> for dev.</p>
-        </section>
-
-        <section id="idocs_docker">
-          <h3>Docker (optional)</h3>
-<pre><code class="bash"># Example: build and run backend
-docker build -t soc-backend -f docker/Dockerfile.backend .
-docker run --env-file .env -p 5000:5000 soc-backend
-
-# Example: run MongoDB
-docker run -d --name soc-mongo -p 27017:27017 mongo:6
-</code></pre>
         </section>
 
         <hr class="divider">
@@ -260,8 +250,7 @@ python src/fetch_all.py
             <li><code>/malicious-urls</code> – Aggregated URLHaus, OTX, etc.</li>
             <li><code>/vt-check</code> – Submit a URL/IP/hash and view VirusTotal details</li>
           </ul>
-          <p>Make sure <code>CORS_ORIGINS</code> includes your dashboard URL so the browser can call Flask APIs.</p>
-        </section>
+          </section>
 
         <section id="idocs_pipeline">
           <h3>Data Processing Pipeline</h3>
@@ -269,9 +258,9 @@ python src/fetch_all.py
             <li><strong>Collect</strong> JSON/CSV feeds via APIs or RSS.</li>
             <li><strong>Normalize</strong> fields (timestamp, source, type, confidence).</li>
             <li><strong>NLP Enrichment</strong> via spaCy NER for IOCs/CVEs/actors.</li>
-            <li><strong>Persist</strong> to MongoDB/Elasticsearch.</li>
+            <li><strong>Persist</strong> to MongoDB/Elasticsearch. (Planned)</li>
             <li><strong>Serve</strong> via Flask API to the React dashboard.</li>
-            <li><strong>Alert</strong> on rules (email/webhook).</li>
+            <li><strong>Alert</strong> via email.</li>
           </ol>
         </section>
 
@@ -293,28 +282,15 @@ python src/fetch_all.py
               <tr><td>GET</td><td><code>/cves</code></td><td>List CVEs (supports <code>?year=&amp;cwe=&amp;sev=</code>).</td></tr>
               <tr><td>GET</td><td><code>/urls</code></td><td>Malicious URLs.</td></tr>
               <tr><td>GET</td><td><code>/vt</code></td><td>On‑demand VirusTotal lookup (<code>?type=url|ip|hash&amp;value=...</code>).</td></tr>
-              <tr><td>GET</td><td><code>/export</code></td><td>Export IOCs to CSV/JSON for SIEM.</td></tr>
             </tbody>
           </table>
-        </section>
-
-        <section id="idocs_examples">
-          <h3>Examples</h3>
-<pre><code class="bash"># Analyze text (curl)
-curl -X POST http://127.0.0.1:5000/api/analyze \
-  -H 'Content-Type: application/json' \
-  -d '{"text":"CVE-2024-1234 used by TA505; IOC 8.8.8.8 and foo.example."}'
-
-# VirusTotal check (URL)
-curl "http://127.0.0.1:5000/api/vt?type=url&value=https://example.com"
-</code></pre>
         </section>
 
         <hr class="divider">
 
         <!-- Integrations -->
         <section id="idocs_integration">
-          <h2>Integrations</h2>
+          <h2>Integrations (Planned)</h2>
         </section>
 
         <section id="idocs_wazuh">
@@ -329,13 +305,11 @@ curl "http://127.0.0.1:5000/api/vt?type=url&value=https://example.com"
         <section id="idocs_alerting">
           <h3>Alerting</h3>
 <pre><code class="bash"># Example env for email alerts
-ALERT_EMAIL_FROM=noreply@soc.local
-ALERT_EMAIL_TO=analyst@soc.local
-SMTP_HOST=smtp.example
-SMTP_USER=...
-SMTP_PASS=...
+ALERT_EMAIL = &lt;email address&gt;
+ALERT_PASS = &lt;key&gt;
+ALERT_TO = &lt;receiver's address&gt;
 </code></pre>
-          <p>Create rules in <code>config/alerts.yml</code> (severity/source/keyword) and run <code>python src/alerts/run_alerts.py</code>.</p>
+          
         </section>
 
         <hr class="divider">
@@ -346,7 +320,6 @@ SMTP_PASS=...
           <ul>
             <li><strong>Secrets</strong>: never hardcode API keys. Use <code>.env</code> and a secrets manager in prod.</li>
             <li><strong>HTTPS</strong>: validate TLS certificates for external APIs; pin where possible.</li>
-            <li><strong>Dark‑web</strong>: only passive collection via Tor inside an isolated VM/containers; no interaction.</li>
             <li><strong>Access Control</strong>: restrict dashboard/API with auth proxy or JWT (planned).</li>
             <li><strong>Rate Limits</strong>: respect third‑party API quotas; exponential backoff in collectors.</li>
           </ul>
