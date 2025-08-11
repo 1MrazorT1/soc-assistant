@@ -110,22 +110,14 @@ cd soc-assistant/
 pip install -r requirements.txt
 ```
 
-### 1. Install dependencies
-
-```bash
-python3 -m venv myenv
-source myenv/bin/activate
-pip install -r requirements.txt
-```
-
-### 2. Start backend
+### 1. Start backend
 
 ```bash
 python fetch_all.py
 python launch.py 
 ```
 
-### 3. Start frontend
+### 2. Start frontend
 
 ```bash
 cd src/dashboard
