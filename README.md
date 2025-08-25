@@ -98,6 +98,13 @@ This project aims to proactively assist Security Operations Centers (SOCs) by ag
 
 ## Getting Started
 
+### IMPORTANT
+
+If you're encountring an OpenSSL error, please run this command:
+```bash
+NODE_OPTIONS=--openssl-legacy-provider npm start
+```
+
 ### 0. Prerequisites
 
 ```bash
